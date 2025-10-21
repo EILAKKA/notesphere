@@ -5,7 +5,7 @@ class EiAppColors {
 
   static const Color eiBgColor = Color(0xff202326);
   static const Color eiFabColor = Color.fromARGB(255, 204, 17, 237);
-  static const Color eiCardColor = Color(0xff2f3225);
+  static const Color eiCardColor = Color(0xff2f3235);
   static const Color eiWhite = Colors.white;
 
   // gradiant colors
