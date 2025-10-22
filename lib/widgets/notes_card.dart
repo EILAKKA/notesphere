@@ -17,7 +17,7 @@ class NotesCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(AppConstants.eiDefaultPadding),
       decoration: BoxDecoration(
-        color: EiAppColors.eiCardColor,
+        color: AppColors.eiCardColor,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(color: Colors.black12, blurRadius: 2, offset: Offset(0, 5)),
@@ -33,7 +33,7 @@ class NotesCard extends StatelessWidget {
           Text(
             '$noOfNotes notes',
             style: AppTextStyles.appBody.copyWith(
-              color: EiAppColors.eiWhite.withValues(alpha: 0.5),
+              color: AppColors.eiWhite.withValues(alpha: 0.5),
             ),
           ),
         ],

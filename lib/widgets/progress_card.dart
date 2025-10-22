@@ -27,7 +27,7 @@ class _ProgressCardEiState extends State<ProgressCardEi> {
     return Container(
       padding: EdgeInsets.all(AppConstants.eiDefaultPadding),
       decoration: BoxDecoration(
-        color: EiAppColors.eiCardColor,
+        color: AppColors.eiCardColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
@@ -42,7 +42,7 @@ class _ProgressCardEiState extends State<ProgressCardEi> {
                 child: Text(
                   "You have Completed ${widget.completedTask} out of ${widget.totalTask} task \nkeep up the progress!",
                   style: AppTextStyles.descriptionTitleSmall.copyWith(
-                    color: EiAppColors.eiWhite.withValues(alpha: 0.7),
+                    color: AppColors.eiWhite.withValues(alpha: 0.7),
                   ),
                 ),
               ),
@@ -54,7 +54,7 @@ class _ProgressCardEiState extends State<ProgressCardEi> {
                 width: MediaQuery.of(context).size.width * 0.2,
                 height: MediaQuery.of(context).size.width * 0.2,
                 decoration: BoxDecoration(
-                  gradient: EiAppColors().eiPrimaryGradiant,
+                  gradient: AppColors().eiPrimaryGradiant,
                   borderRadius: BorderRadius.circular(100),
                 ),
               ),

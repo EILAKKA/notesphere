@@ -5,6 +5,7 @@ import 'package:notesphere/utils/colors.dart';
 import 'package:notesphere/utils/constants.dart';
 import 'package:notesphere/utils/router.dart';
 import 'package:notesphere/utils/text_styles.dart';
+import 'package:notesphere/widgets/bottom_sheet.dart';
 import 'package:notesphere/widgets/notes_card.dart';
 
 class NoteScreen extends StatefulWidget {
@@ -48,6 +49,26 @@ class _NoteScreenState extends State<NoteScreen> {
     });
   }
 
+  // open bottom sheet
+  void openBottomSheet() {
+    showModalBottomSheet(
+      barrierColor: Colors.black.withValues(alpha: 0.7),
+      context: context,
+      builder: (context) {
+        return CategoryInputBottomSheet(
+          onNewNote: () {
+            Navigator.pop(context);
+            AppRouter.router.push("/create-note", extra: false);
+          },
+          onNewCategory: () {
+            Navigator.pop(context);
+            AppRouter.router.push("/create-note", extra: true);
+          },
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,14 +82,14 @@ class _NoteScreenState extends State<NoteScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: openBottomSheet,
 
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(100)),
-          side: BorderSide(color: EiAppColors.eiWhite, width: 2),
+          side: BorderSide(color: AppColors.eiWhite, width: 2),
         ),
 
-        child: Icon(Icons.add, color: EiAppColors.eiWhite, size: 30),
+        child: Icon(Icons.add, color: AppColors.eiWhite, size: 30),
       ),
       body: Padding(
         padding: EdgeInsets.all(AppConstants.eiDefaultPadding),

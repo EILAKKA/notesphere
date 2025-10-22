@@ -23,7 +23,7 @@ class _NotesTodoCardState extends State<NotesTodoCard> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.45,
       decoration: BoxDecoration(
-        color: EiAppColors.eiCardColor,
+        color: AppColors.eiCardColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Padding(
@@ -37,7 +37,7 @@ class _NotesTodoCardState extends State<NotesTodoCard> {
             Text(
               widget.description,
               style: AppTextStyles.descriptionTitleSmall.copyWith(
-                color: EiAppColors.eiWhite.withValues(alpha: 0.5),
+                color: AppColors.eiWhite.withValues(alpha: 0.5),
               ),
             ),
           ],

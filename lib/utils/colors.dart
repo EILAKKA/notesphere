@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EiAppColors {
+class AppColors {
   // primary colors
 
   static const Color eiBgColor = Color(0xff202326);

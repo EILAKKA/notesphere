@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 import 'package:hive/hive.dart';
 import 'package:notesphere/models/note_model.dart';
 import 'package:uuid/uuid.dart';
@@ -54,6 +56,17 @@ class NoteService {
     return [];
   }
 
+  // Method to add a note
+  Future<void> addNote(Note note) async {
+    try {
+      //get all notes from the box
+      final dynamic allNotes = await _myBox.get("notes");
+      allNotes.add(note);
+      await _myBox.put("notes", allNotes);
+      // Snack Bar
+    } catch (e) {}
+  }
+
   //loop througn all notes and create an object where the key is the category and the value is the notes in that category
 
   Map<String, List<Note>> getNotesByCategoryMap(List<Note> allNotes) {
@@ -80,5 +93,45 @@ class NoteService {
     }
 
     return notes;
+  }
+
+  // Method to update / edit a note
+  Future<void> updateNote(Note note) async {
+    try {
+      //get all notes from the box
+      final dynamic allNotes = await _myBox.get("notes");
+      final int index = allNotes.indexWhere((element) => element.id == note.id);
+      allNotes[index] = note;
+      await _myBox.put("notes", allNotes);
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+    }
+  }
+
+  // Method to delete a note
+  Future<void> deleteNote(String noteId) async {
+    try {
+      //get all notes from the box
+      final dynamic allNotes = await _myBox.get("notes");
+      allNotes.removeWhere((element) => element.id == noteId);
+      await _myBox.put("notes", allNotes);
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+    }
+  }
+
+  // Method to get all the categories
+  Future<List<String>> getAllCategories() async {
+    final List<String> categories = [];
+    //get all notes from the box
+    final dynamic allNotes = await _myBox.get("notes");
+    for (final note in allNotes) {
+      if (!categories.contains(note.category)) {
+        categories.add(note.category);
+      }
+    }
+    return categories;
   }
 }

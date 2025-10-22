@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
+import 'package:notesphere/screens/create_new_note.dart';
 import 'package:notesphere/screens/home_screen.dart';
 import 'package:notesphere/screens/note_screen.dart';
 import 'package:notesphere/screens/notes_by_category.dart';
@@ -43,6 +44,15 @@ class AppRouter {
         builder: (context, state) {
           final String category = state.extra as String;
           return NotesByCategoryScreen(category: category);
+        },
+      ),
+      // create new note page
+      GoRoute(
+        name: "create-note",
+        path: "/create-note",
+        builder: (context, state) {
+          final isNewCategoryPage = state.extra as bool;
+          return CreateNewNotePage(isNewCategory: isNewCategoryPage);
         },
       ),
     ],

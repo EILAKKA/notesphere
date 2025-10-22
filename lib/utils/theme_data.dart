@@ -4,19 +4,17 @@ import 'package:notesphere/utils/colors.dart';
 class ThemeDataClass {
   static ThemeData darkTheme = ThemeData(
     primaryColor: ThemeData.dark().primaryColor,
-    scaffoldBackgroundColor: EiAppColors.eiBgColor,
+    scaffoldBackgroundColor: AppColors.eiBgColor,
 
-    colorScheme: const ColorScheme.dark().copyWith(
-      primary: EiAppColors.eiWhite,
-    ),
+    colorScheme: const ColorScheme.dark().copyWith(primary: AppColors.eiWhite),
     appBarTheme: AppBarTheme(
-      backgroundColor: EiAppColors.eiBgColor,
+      backgroundColor: AppColors.eiBgColor,
       elevation: 0,
-      iconTheme: IconThemeData(color: EiAppColors.eiWhite),
+      iconTheme: IconThemeData(color: AppColors.eiWhite),
     ),
 
     floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: EiAppColors.eiFabColor,
+      backgroundColor: AppColors.eiFabColor,
     ),
   );
 }
