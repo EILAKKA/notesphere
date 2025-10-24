@@ -80,7 +80,7 @@ class _NotesByCategoryScreenState extends State<NotesByCategoryScreen> {
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1,
+                  crossAxisCount: 2,
                   crossAxisSpacing: AppConstants.eiDefaultPadding,
                   mainAxisSpacing: AppConstants.eiDefaultPadding,
                   childAspectRatio: 7 / 11,
@@ -99,6 +99,12 @@ class _NotesByCategoryScreenState extends State<NotesByCategoryScreen> {
                     },
                     editNote: () async {
                       _editNote(noteList[index]);
+                    },
+                    viewSingleNote: () {
+                      AppRouter.router.push(
+                        "/single-note",
+                        extra: noteList[index],
+                      );
                     },
                   );
                 },

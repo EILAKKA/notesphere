@@ -5,6 +5,7 @@ import 'package:notesphere/screens/create_new_note.dart';
 import 'package:notesphere/screens/home_screen.dart';
 import 'package:notesphere/screens/note_screen.dart';
 import 'package:notesphere/screens/notes_by_category.dart';
+import 'package:notesphere/screens/single_note_screen.dart';
 import 'package:notesphere/screens/todo_screen.dart';
 import 'package:notesphere/screens/update_note_screen.dart';
 
@@ -64,6 +65,15 @@ class AppRouter {
         builder: (context, state) {
           final Note note = state.extra as Note;
           return UpdateNoteScreen(note: note);
+        },
+      ),
+      // single note screen
+      GoRoute(
+        name: "single-note",
+        path: "/single-note",
+        builder: (context, state) {
+          final Note note = state.extra as Note;
+          return SingleNoteScreen(note: note);
         },
       ),
     ],
